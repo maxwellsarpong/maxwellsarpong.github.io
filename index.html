@@ -290,7 +290,7 @@
 
   .about-right { display: flex; flex-direction: column; gap: 20px; }
 
-  .skill-group { }
+  .skill-group { margin-bottom: 24px; }
   .skill-group-label {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
@@ -356,7 +356,7 @@
     font-family: 'DM Mono', monospace;
   }
 
-  .tl-content { }
+  .tl-content { position: relative; }
   .tl-role {
     font-family: 'Lora', serif;
     font-size: 20px;
@@ -414,6 +414,38 @@
   }
   .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
   .project-card:hover::before { transform: scaleX(1); }
+
+  .project-card.featured {
+    border-color: var(--accent);
+    background: rgba(196,98,45,0.03);
+    grid-column: span 2;
+  }
+  .project-card.featured::after {
+    content: 'Featured';
+    position: absolute;
+    top: 16px; right: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+  .project-card.featured .project-title {
+    font-size: 24px;
+  }
+  .project-card.featured .project-desc {
+    font-size: 15px;
+  }
+
+  @media (max-width: 900px) {
+    .project-card.featured {
+      grid-column: span 1;
+    }
+  }
 
   .project-tag {
     font-family: 'DM Mono', monospace;
@@ -826,6 +858,23 @@
     <h2 class="section-title">Things I've <em>built</em></h2>
     <div class="projects-grid">
 
+      <div class="project-card reveal featured">
+        <div class="project-tag">Security · Infrastructure</div>
+        <div class="project-title">
+          <a href="https://pypi.org/project/scp-cli/" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+            Security Compliance Platform (SCP)
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; opacity: 0.6;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+          </a>
+        </div>
+        <p class="project-desc">A comprehensive platform for automated security compliance auditing across enterprise environments. Features `scp-cli` for seamless CI/CD integration, real-time monitoring, and automated remediation tracking.</p>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">FastAPI</span>
+          <span class="stack-tag">CLI</span>
+          <span class="stack-tag">PostgreSQL</span>
+        </div>
+      </div>
+
       <div class="project-card reveal">
         <div class="project-tag">Finance · Backend</div>
         <div class="project-title">Stock Trading Engine</div>
@@ -878,6 +927,18 @@
           <span class="stack-tag">Python</span>
           <span class="stack-tag">CI/CD</span>
           <span class="stack-tag">Automation</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-tag">AI · Audio · Python</div>
+        <div class="project-title">Audio Accent Classification Tool</div>
+        <p class="project-desc">Detects and classifies audio accents by nationality using SpeechBrain inference classifiers and a Streamlit interface for real-time analysis.</p>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Streamlit</span>
+          <span class="stack-tag">SpeechBrain</span>
+          <span class="stack-tag">AI</span>
         </div>
       </div>
 
